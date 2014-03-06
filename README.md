@@ -42,9 +42,25 @@ MyApp::Dojo::Util::Options.names
 #=> ['on', 'off', 'maybe', '7', '42', 'tuesday']
 ```
 
+An optional delimiter can be passed in when defining your namespace. _(I would recommend against using `_` as that delimiter.)_
+```rb
+ns 'github|repositories|settings', '|' do
+  def destroy!
+    confirm
+  end
+end
+
+Github::Repositories::Settings.destroy!
+```
+
+
+
 ## Gotchas
 
-There is at least one known and unexpected side effect. __Defining constants inside the `ns` block does not work as expected__. Any constants set will be at the top level namespace.
+There is at least one known and unexpected side effect. 
+
+__Defining constants inside the `ns` block does not work as expected__. 
+Any constants set will be at the top level namespace.
 ```rb
 ns 'rails.active_support.version' do
   VERSION = '1.0.0'
