@@ -1,4 +1,4 @@
-# Namespacing [![Build Status](https://travis-ci.org/jah2488/namespacing.png?branch=master)](https://travis-ci.org/jah2488/namespacing) [![Code Climate](https://codeclimate.com/github/jah2488/namespacing.png)](https://codeclimate.com/github/jah2488/namespacing)
+# Namespacing [![Build Status](https://travis-ci.org/jah2488/namespacing.png?branch=master)](https://travis-ci.org/jah2488/namespacing) [![Code Climate](https://codeclimate.com/github/jah2488/namespacing.png)](https://codeclimate.com/github/jah2488/namespacing) [![Code Climate](https://codeclimate.com/github/jah2488/namespacing.png)](https://codeclimate.com/github/jah2488/namespacing)
 
 Namespacing adds namespaces to Ruby by taking inspiration from how Clojure handles its namespaces.
 It is primarly a simplification of the existing module syntax. Great for deeply nested modules or for attempting a more functinoal approach to writing Ruby code.
