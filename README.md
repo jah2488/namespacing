@@ -3,7 +3,7 @@
 
 
 Namespacing adds namespaces to Ruby by taking inspiration from how Clojure handles its namespaces.
-It is primarly a simplification of the existing module syntax. Great for deeply nested modules or for attempting a more functinoal approach to writing Ruby code.
+It is primarly a simplification of the existing module syntax. Great for deeply nested modules or for attempting a more functional approach to writing Ruby code. I wrote [a blog post](http://jah2488.roon.io/adding-namespaces-to-ruby-for-fun-and-practice) about the inspiration and process of creating this code.
 
 ## Installation
 
