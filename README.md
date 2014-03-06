@@ -42,6 +42,39 @@ MyApp::Dojo::Util::Options.names
 #=> ['on', 'off', 'maybe', '7', '42', 'tuesday']
 ```
 
+## Gotchas
+
+There is at least one known and unexpected side effect. __Defining constants inside the `ns` block does not work as expected__. Any constants set will be at the top level namespace.
+```rb
+ns 'rails.active_support.version' do
+  VERSION = '1.0.0'
+end
+
+Rails::ActiveSupport::Version #=> NameError: uninitialized constant Kernel::Rails::ActiveSupport::Version::VERSION
+VERSION #=> '1.0.0'
+```
+
+There are currently two ways to define constants in the proper scoping to avoid this issue.
+
+__Define the full scope of the constant__
+```rb
+ns 'rails.active.version' do
+  Rails::Active::Version::MAJOR = 1
+end
+
+Rails::Active::Version::MAJOR #=> 1
+```
+
+__Use `const_set`__
+```rb
+ns 'rails.support.version' do
+  const_set(:MAJOR, 1)
+end
+
+Rails::Support::Version::MAJOR #=> 1
+```
+
+
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/namespacing/fork )
