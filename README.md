@@ -42,7 +42,7 @@ MyApp::Dojo::Util::Options.names
 #=> ['on', 'off', 'maybe', '7', '42', 'tuesday']
 ```
 
-An optional delimiter can be passed in when defining your namespace. _(I would recommend against using `_` as that delimiter.)_
+An optional delimiter can be passed in when defining your namespace. (I would recommend against using `_` as that delimiter.)
 ```rb
 ns 'github|repositories|settings', '|' do
   def destroy!
