@@ -1,6 +1,7 @@
 # Namespacing
 
-TODO: Write a gem description
+Namespacing adds namespaces to Ruby by taking inspiration from how Clojure handles its namespaces.
+It is primarly a simplification of the existing module syntax. Great for deeply nested modules or for attempting a more functinoal approach to writing Ruby code.
 
 ## Installation
 
@@ -18,7 +19,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply require the gem and decide the scope you'd like to have it at. To use it in the global scope, you'll want to extend `Object`
+
+```rb
+require 'namespacing'
+
+class Object
+  include Namespacing
+end
+
+ns 'my_app.dojo.util.options' do
+  def names
+    %w(on off maybe 7 42 tuesday)
+  end
+end
+```
+Then this code can be called with: 
+```rb
+MyApp::Dojo::Util::Options.names 
+#=> ['on', 'off', 'maybe', '7', '42', 'tuesday']
+```
 
 ## Contributing
 
