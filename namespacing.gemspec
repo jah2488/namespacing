@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Namespacing::VERSION
   spec.authors       = ["Justin Herrick"]
   spec.email         = ["justin@justinherrick.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Adds Clojure like Namespacing to Ruby.}
+  spec.description   = %q{Allows you to succintly define deeply nested modules.}
+  spec.homepage      = "https://github.com/jah2488/namespacing"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
