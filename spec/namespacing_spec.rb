@@ -27,10 +27,10 @@ describe Namespacing do
     end
   end
 
-  context 'nest_mod' do
+  context 'make_namespaces' do
 
     it 'creates a module given a string and block' do
-      nest_mod(['greeter'], Proc.new {
+      make_namespaces(['greeter'], Proc.new {
         @hello = 'hello'
         def greet
           @hello
@@ -39,8 +39,8 @@ describe Namespacing do
       expect(Greeter.greet).to eq('hello')
     end
 
-    it 'creates nested modules' do
-      nest_mod(['dojo', 'util', 'options'], Proc.new {
+    it 'creates nested namespaces' do
+      make_namespaces(['dojo', 'util', 'options'], Proc.new {
         def names
           %w(john jill steve carol)
         end
@@ -49,9 +49,9 @@ describe Namespacing do
     end
   end
 
-  context 'find_or_create_constant_in_module' do
-    it { expect(find_or_create_constant_in_module(Kernel, 'Hello')).to eq(Hello)    }
-    it { expect(find_or_create_constant_in_module(Kernel, 'Hello')).to be_a(Module) }
+  context 'constant_in' do
+    it { expect(constant_in(Kernel, 'Hello')).to eq(Hello)    }
+    it { expect(constant_in(Kernel, 'Hello')).to be_a(Module) }
   end
 
   context 'to_const' do

@@ -1,33 +1,28 @@
-require "namespacing/version"
-
 module Namespacing
   def ns(namespace, delim = '.', &block)
-    nest_mod(namespace.split(delim), block)
+    make_namespaces(namespace.split(delim), block)
   end
 
   private
-  def nest_mod(mod = Kernel, module_names, block)
-    return mod.module_exec(&block) if module_names.empty?
-    find_or_create_constant_in_module(mod, to_const(module_names.first)).tap do |this|
-      make_module_methods_accessible(this)
-      this.module_exec do
-        nest_mod(this, module_names.drop(1), block)
+  def make_namespaces(namespaces, block)
+    modules = namespaces.each_with_object([Kernel]) do |namespace, modules|
+      modules << constant_in(modules.last, to_const(namespace)).tap do |mod|
+        make_module_methods_accessible(mod)
       end
     end
+    modules.last.module_exec(&block)
+  end
+
+  def constant_in(obj, str)
+    return obj.const_get(str) if obj.const_defined?(str)
+    obj.const_set(str, Module.new)
   end
 
   def make_module_methods_accessible(mod)
     mod.module_exec { extend self }
   end
 
-  def find_or_create_constant_in_module(mod, str)
-    return mod.const_get(str) if mod.const_defined?(str)
-    return mod.const_set(str, Module.new)
-  end
-
   def to_const(str)
-    str.split('_')
-       .map(&:capitalize)
-       .join
+    str.split('_').map(&:capitalize).join
   end
 end
