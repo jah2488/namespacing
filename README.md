@@ -1,4 +1,4 @@
-# Namespacing [![Build Status](https://travis-ci.org/jah2488/namespacing.png?branch=master)](https://travis-ci.org/jah2488/namespacing) [![Code Climate](https://codeclimate.com/github/jah2488/namespacing.png)](https://codeclimate.com/github/jah2488/namespacing) [![Dependency Status](https://gemnasium.com/jah2488/namespacing.png)](https://gemnasium.com/jah2488/namespacing)
+# Namespacing [![Build Status](https://travis-ci.org/jah2488/namespacing.png?branch=master)](https://travis-ci.org/jah2488/namespacing) [![Code Climate](https://codeclimate.com/github/jah2488/namespacing.png)](https://codeclimate.com/github/jah2488/namespacing)
 [![Gem Version](https://badge.fury.io/rb/namespacing.png)](http://badge.fury.io/rb/namespacing)
 
 
